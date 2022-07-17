@@ -24,13 +24,13 @@ public class MyRESTController {
         return allEmployees;
     }
 
-//    @GetMapping("/employees/{id}")
-//    public Employee getEmployee(@PathVariable int id){
-//
-//        Employee employee = employeeService.getEmployee(id);
-//
-//        return employee;
-//    }
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable int id){
+
+        Employee employee = employeeService.getEmployee(id);
+
+        return employee;
+    }
 
 //    @ExceptionHandler
 //    public ResponseEntity<EmployeeIncorrectData> handleException(NoSuchEmployeeException exception){
@@ -51,30 +51,26 @@ public class MyRESTController {
 //
 //        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
 //    }
-//
-//    @PostMapping("/employees")
-//    public Employee addEmployee(@RequestBody Employee employee){
-//
-//        employeeService.saveEmployee(employee);
-//        return employee;
-//    }
-//
-//    @PutMapping("/employees")
-//    public  Employee updateEmployee(@RequestBody Employee employee){
-//        employeeService.saveEmployee(employee);
-//        return employee;
-//    }
-//
-//    @DeleteMapping("/employees/{id}")
-//    public String deleteEmployee(@PathVariable int id){
-//        Employee employee = employeeService.getEmployee(id);
-//
-//        if (employee == null){
-//            throw new NoSuchEmployeeException("There is no employee with Id = " + id);
-//        }
-//
-//        employeeService.deleteEmployee(id);
-//        return "Employee with id = " + id + " was deleted";
-//    }
+
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee){
+
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @PutMapping("/employees")
+    public  Employee updateEmployee(@RequestBody Employee employee){
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public String deleteEmployee(@PathVariable int id){
+        employeeService.getEmployee(id);
+
+       employeeService.deleteEmployee(id);
+        return "Employee with id = " + id + " was deleted";
+    }
 
 }
